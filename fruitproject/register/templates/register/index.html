@@ -1,0 +1,120 @@
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'register/css/index.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'register/css/main.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'register/css/register-log.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'register/css/plug/dialog.css' %}" />
+
+<div class="nav-top-wrapper">
+	<div id="nav-top">
+		<div class="left">欢迎来到【果百乐】！
+			<span class="favor"><i></i>加入收藏</span>
+			<span class="mobile-link"><i></i>手机访问</span>
+			<span class="chat"><i></i></span>
+		</div>
+		<div class="right">您好！<span id="login" class="red">[ 请登录 ]</span><span class="red">[ 免费注册 ]</span><span class="shopping-car"><i></i>我的购物车[ <span>10</span> ]</span><a href="">帮助中心</a></div>
+	</div>
+</div>
+
+<div class="head clearfix">
+	<div id="logo"><img src="{% static 'register/images/logo.png' %}"></div>
+	<div id="position">我在[杭州]</div>
+	<div class="search">
+		<div class="search-bar">
+			<i class="search-icon"></i>
+			<input type="text" class="search-input">
+			<button type="submit">搜索</button>
+		</div>
+		<div class="hot-word"><span class="word">热门搜索:</span><span>奇异果 苹果 芒果</span></div>
+	</div>
+	<div class="share">
+		<span>分享到</span>
+		<i class="zone"></i>
+		<i class="weibo"></i>
+		<i class="weixin"></i>
+		<i class="add-share"></i>
+	</div>
+</div>
+<div class="nav">
+	<ul>
+		<li class="current"><a href="">首页</a></li>
+		<li><a href="">在线商城</a></li>
+		<li><a href="">健康果语</a></li>
+		<li><a href="">联系我们</a></li>
+	</ul>
+</div>
+<div class="crumb"><i class="p-icon"></i>您当前的位置：<a href="">首页</a> > <a href="">注册账号</a></div>
+<!--content start-->
+<div class="content reg-log">
+	<div class="register">
+		<div class="welcome"><img src="{% static 'register/images/add.png' %}"> 欢迎加入百果乐</div>
+		<div class="reg-form">
+			<form id="register-form" action="addUser" method="get">
+				<ul>
+					<li>
+						<label>账号</label>
+						<div>
+							<input name="nickname" type="text">
+							<span class="tip">注册成功后不可修改，请慎重！</span>
+					    </div>
+					</li>
+					<li>
+						<label>密码</label>
+						<div>
+							<input name="password" type="password">
+							<span class="tip">字母、数字或者英文符号，最短6位，区分大小写</span>
+					    </div>
+					</li>
+					<li>
+						<label>确认密码</label>
+						<div>
+							<input name="password-confirm" type="password">
+							<span class="tip">请再次输入密码</span>
+					    </div>
+					</li>
+					<li>
+						<label>验证码</label>
+						<div class="w347">
+							<input name="vcode" class="vcode-input" type="text">
+							<div class="vcode"><img src="{% static 'register/images/vcode.png' %}"><a class="blue" href="">换一张</a></div>
+					    </div>
+					</li>
+					<li>
+						<div class="margin-label"><input type="checkbox">我同意并遵守<span class="blue">《果百乐用户协议》</span></div>
+					</li>
+					<li>
+						<div class="margin-label"><span id="register-submit" class="btn">立即注册</span></div>
+					</li>
+				</ul>
+			</form>
+		</div>
+		<div class="other">
+			<div><i class="arrow"></i>我已有账号，<a class="other-login" href="">登录</a></div>
+			<div><i class="arrow"></i><a class="find-pwd" href="">我忘记密码了？</a></div>
+		</div>
+	</div>
+</div>
+<!--content end-->
+<script type="text/javascript" src="{% static 'register/js/jquery-1.11.1.js' %}"></script>
+<script type="text/javascript" src="{% static 'register/js/plugs/jquery.Dialog.js' %}"></script>
+<script type="text/javascript">
+	$(function(){
+		$('#login').click(function(){
+			new Dialog({
+				width:398,
+				height:316,
+				title:'会员登录',
+				skinClassName:'login-dialog',
+				content:'<div><div class="field"><span class="icon-account"></span><input type="text" class="text" placeholder="请输入账号"></div><div class="field"><span class="icon-key"></span><input type="password" class="text" placeholder="请输入密码"></div></div><div class="entries"><span><a href="">忘记密码？</a></span></div><button class="login-btn">登录</button>',
+				button4login: '登录',
+				loginFn: function(){
+
+				}
+			});
+		});
+
+		$('#register-submit').click(function(){
+			$('#register-form').submit();
+		});
+
+	});
+</script>

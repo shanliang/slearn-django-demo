@@ -1,0 +1,8 @@
+<form enctype="multipart/form-data" method="post" action="">
+	<input type="hidden" name="csrfmiddlewaretoken" value="{% csrf_token %}"/>
+    <ul>
+    	{{ form.as_ul }}
+    	<li><input type="submit" value="Submit" /></li>
+    </ul>
+    
+</form>

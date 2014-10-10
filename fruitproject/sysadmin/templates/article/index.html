@@ -1,0 +1,140 @@
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'article/css/style.css' %}" />
+
+
+
+<div class="header clearfix">
+	<div class="logo-wrapper" id="logo"><img  src="{% static 'article/images/logo.png' %}"><span>系统管理平台</span></div>
+</div>
+<div class="nav">
+	<ul class="clearfix">
+		<li><a href="">图库管理</a></li>
+		<li class="current"><a href="">文库管理</a></li>
+		<li><a href="">图库管理3</a></li>
+		<li><a href="">图库管理4</a></li>
+	</ul>
+</div>
+<!--content start-->
+<div class="content">
+	<div class="article">
+		<div class="vertical-nav">
+			<ul>
+				<li class="current"><a href="">文章管理</a></li>
+				<li><a href="">百果说</a></li>
+				<li><a href="">今日关注</a></li>
+				<li><a href="">养生果语</a></li>
+				<li><a href="">热门精选</a></li>
+				<li><a href="">发现好果</a></li>
+			</ul>
+		</div>
+		<div class="main-content clearfix">
+			<div class="list-article">
+				<h3>文章列表<span id="delete-article" class="delete-article">[<span>删除选中</span>]</span></h3>
+				<div class="table-article">
+					<div class="table-header">
+						<span class="select">选择</span>
+						<span class="article-index">序号</span>
+						<span class="article-id">ID</span>
+						<span class="title">文章标题</span>
+						<span class="author">作者</span>
+						<span class="date">日期</span>
+					</div>
+
+					<ul class="table-body">						
+						{% if latest_article_list %}
+					    {% for article in latest_article_list %}
+					        <li>
+					        	<span class="select"><input type="checkbox" id="{{ article.id }}"/></span>
+					        	<a target="_blank" href="{% url 'sysadmin:readArticle' article.id %}">
+					        		<span class="article-index">{{ article.index }}</span>
+					        		<span class="article-id">{{ article.article_id }}</span>
+					        		<span class="title">{{ article.title }}</span>
+									<span class="author">{{ article.author }}</span>
+									<span class="date">{{ article.pub_date|date:"Y-m-d" }}</span>
+								</a>	
+					        </li>
+					    {% endfor %}
+						{% else %}
+						    <li>No article are available.</lis>
+						{% endif %}
+					</ul>	
+				</div>
+			</div>
+			<div class="add-article">
+				<h3>上传新文章：</h3>
+				<form action="addArticle" method="get">
+					<ul>
+						<li>	
+							<div class="form-item fl" >
+								<label>文章ID</label>
+								<div class="articleid-input">
+									<input name="article-id" type="text">
+									<span class="tip"></span>
+							    </div>
+							</div>
+						    <div class="form-item fr">
+						    	<label>作者</label>
+								<div class="author-input">
+									<input name="author" type="text">
+									<span class="tip"></span>
+							    </div>
+						    </div>
+						</li>
+						<li>
+							<label>标题</label>
+							<div class="title-input">
+								<input name="title" type="text">
+								<span class="tip"></span>
+						    </div>
+						</li>
+						<li>
+							<label>日期</label>
+							<div class="date-input">
+								<input name="time" type="text">
+								<span class="tip"></span>
+						    </div>
+						</li>
+						<li>
+							<label>摘要</label>
+							<div>
+								<textarea class="summary" name="summary"></textarea>
+								<span class="tip"></span>
+						    </div>
+						</li>
+						<li class="content-textarea">
+							<label>正文</label>
+							<div>
+								<textarea class="form-content" name="content"></textarea>
+								<span class="tip"></span>
+						    </div>
+						</li>
+						<li>
+							<div class="margin-label"><input type="submit" value="保存"></div>
+						</li>
+					</ul>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<form id="deleteForm" action="deleteArticle" method="get" class="hide">
+	<input id="delete-ids" name="delete-ids" type="text">
+</form>
+<!--content end-->
+<script type="text/javascript" src="{% static 'article/js/jquery-1.11.1.js' %}"></script>
+<script>
+	$(function(){
+		$('#delete-article').click(function(){
+			var checkboxes = $('.table-body').find('input[type="checkbox"]'),
+			ids = [];
+			checkboxes.each(function(){
+				if(this.checked){
+					ids.push(this.id);
+				}
+				$('#delete-ids').val(ids);
+				$('#deleteForm').submit();
+			});
+
+		});
+	});
+</script>

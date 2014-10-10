@@ -1,0 +1,16 @@
+.ui-dialog-mask{ position: fixed; top: 0; left: 0;  width: 100%; height: 100%; background: #000; opacity: 0.5; z-index: 1;}
+.ui-dialog{ position: absolute; top:0; left: 0; z-index: 2; background: #fff; top:150px; left:400px; width: 400px; height: 320px;}
+.ui-dialog input.text{ border: 1px solid #c3c3c3; border-radius: 3px; padding: 4px;}
+.ui-dialog-header{position: relative;}
+.ui-dialog-close-btn{cursor: pointer;}
+.login-dialog .ui-dialog-header{ height: 82px; line-height: 82px; font-size: 20px; text-align: center; color: #646363;}
+.login-dialog input.text{width: 308px; height: 34px; line-height: 34px; margin-bottom: 21px; padding-left: 36px;}
+.login-dialog .ui-dialog-content{ text-align: center;}
+.login-dialog .login-btn{ background: #1d9105; font-size: 20px; padding: 10px 60px; border: 0 none; color: #fff; border-radius: 3px; cursor: pointer;}
+.login-dialog .entries{ margin-bottom: 22px; text-align: left; padding-left: 27px;}
+.login-dialog a{ color: #1729dd; text-decoration: underline;}
+.login-dialog .entries span{ margin-right: 26px;}
+.login-dialog .field{ position: relative;}
+.login-dialog .icon-account{ position: absolute; top: 16px; left: 36px; display: inline-block; width: 16px; height: 14px; background: url(../../images/account.png);}
+.login-dialog .icon-key{ position: absolute; top: 14px; left: 36px; display: inline-block; width: 16px; height: 16px; background: url(../../images/key.png);}
+.login-dialog .ui-dialog-close-btn{ position: absolute; right: 8px; top: 8px; display: inline-block; width: 20px; height: 20px; background: url(../../images/close.png);}

@@ -1,0 +1,12 @@
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'register/style.css' %}" />
+<h2>Nickname:Email</h2>
+{% if latest_register_list %}
+    <ul>
+    {% for register in latest_register_list %}
+        <li><a href="/register/{{ register.id }}/">{{ register.nickname }}</a>:{{ register.email }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No register are available.</p>
+{% endif %}

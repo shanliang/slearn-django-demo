@@ -1,0 +1,20 @@
+.register{margin-top: 6px; border: 1px solid #d1d0d0; border-top: 1px solid #09a710; padding: 15px 0px 100px 68px; margin-bottom: 20px; color: #565656}
+label{ width: 94px; text-align: left; float: left; font-size: 16px; line-height: 30px;}
+.welcome{ margin-bottom: 36px; font-size: 18px; color: #05800a;}
+.welcome img{ position: relative; top: 6px;}
+.reg-form{ margin-bottom: 77px;}
+.reg-form input[type="text"],.reg-form input[type="password"]{ border: 1px solid #a9aaaa; border-radius: 2px; width:333px; padding: 6px; margin-bottom: 6px;}
+.reg-form li{clear: both; margin-bottom: 17px; }
+.reg-form li:after{ content: ""; clear:both; height: 0; display: block; visibility: hidden;}
+.reg-form li div{ float: left;}
+.reg-form  input.vcode-input{ width: 90px; float: left;}
+.reg-form .vcode{ float: left; background-color: #f3f3f3; padding-right: 6px; height: 34px; line-height: 34px;}
+.tip{ display: block;}
+.margin-label{ margin-left: 94px;}
+i.arrow{ display: inline-block;  width: 14px; height: 17px; background: url(../images/arrow.png); position: relative; top: 2px; margin-right: 8px;}
+.other{ font-size: 14px;}
+.other div:first-child{ margin-bottom: 10px;}
+.other a.other-login{ color: #2a9206;}
+.other a.find-pwd{ text-decoration: underline; color: #565656; font-size: 14px;}
+.blue{ color: #2182db;}
+
