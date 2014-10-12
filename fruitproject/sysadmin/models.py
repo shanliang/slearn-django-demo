@@ -10,7 +10,7 @@ class Article(models.Model):
 	author = models.CharField(max_length=30)
 
 
-class Photo(models.Model):
+class uploadPhoto(models.Model):
 	picture_id = models.IntegerField(default=0)
 	#photo = models.ImageField(upload_to='/photos')	
 

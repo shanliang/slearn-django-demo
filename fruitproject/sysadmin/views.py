@@ -2,9 +2,11 @@ from django.http import HttpResponse
 from django.template import RequestContext, loader
 from django.shortcuts import render_to_response, render, redirect
 from sysadmin.models import Article
-# from .upload_form import UploadImageForm
+from .upload_form import UploadImageForm
 from django.views.decorators.csrf import csrf_exempt
-from .models import Photo
+from .models import uploadPhoto
+from .handle_uploaded_file import handle_uploaded_file
+
 
 import MySQLdb
 
@@ -50,15 +52,14 @@ def readArticle(request, article_id):
         raise Http404
     return render(request, 'article/article.html', {'article': article})  
 
-# @csrf_exempt
-# def uploadPhoto(request):
-#     if request.method == 'POST':
-#         form = UploadImageForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             #handle_uploaded_file(request.FILES['file'])
-#             print request.FILES
-#             return HttpResponse('ok')
-#     else:
-#         form = UploadImageForm()
-#     return render_to_response('photo/upload.html', {'form': form})
+@csrf_exempt
+def uploadPhoto(request):
+    if request.method == 'POST':
+        form = UploadImageForm(request.POST, request.FILES)
+        if form.is_valid():
+            handle_uploaded_file(request.FILES['photo'])
+            return HttpResponse('ok')
+    else:
+        form = UploadImageForm()
+    return render_to_response('photo/upload.html', {'form': form})
 
