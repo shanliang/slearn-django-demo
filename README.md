@@ -1,1 +1,1 @@
-A website uses django
+# A website builds on django
