@@ -1,1 +1,1 @@
-# A website builds on django
+# A website is built on top of django
